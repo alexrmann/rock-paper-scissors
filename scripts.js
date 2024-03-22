@@ -32,6 +32,7 @@ function playRound(playerSelection, computerSelection) {
     for (let i = 0; i <= choices.length - 1; i++) {
         if (regexpChoice.test(choices[i])) {
             playerChoice = i;
+            console.log("Match found!");
             console.log(`playerChoice assigned to ${playerChoice}`);
         }
     }
@@ -40,7 +41,6 @@ function playRound(playerSelection, computerSelection) {
     if (playerChoice === undefined) {
         alert("No matching choices. Check your spelling and try again.");
     } else {
-        console.log("Match found!");
         switch(playerChoice) {
             case playerChoice = 0: 
                 console.log(`Player has chosen Rock`);
@@ -90,10 +90,12 @@ function playRound(playerSelection, computerSelection) {
             console.log(`Computer has chosen Scissors`);
     }
 
-    if (playerChoice == computerSelection) {
-        console.log("Tie!")
-    } else {
-        console.log("Someone won!")
+    if (playerChoice != undefined) {
+        if (playerChoice == computerSelection) {
+            console.log("Tie!")
+        } else {
+            console.log("Someone won!")
+        }
     }
 
 }
