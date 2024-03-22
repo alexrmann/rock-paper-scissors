@@ -4,7 +4,7 @@ function getComputerChoice() {
     // randomly return rock, paper, or scissors
     const randomChoice = Math.floor(Math.random() * choices.length);
     console.log(randomChoice, choices[randomChoice]);
-    return;
+    return randomChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -35,7 +35,8 @@ function playRound(playerSelection, computerSelection) {
             console.log(`playerChoice assigned to ${playerChoice}`);
         }
     }
-    
+
+    // Announce Player's choice
     if (playerChoice === undefined) {
         alert("No matching choices. Check your spelling and try again.");
     } else {
@@ -77,11 +78,28 @@ function playRound(playerSelection, computerSelection) {
     ENDIF
 */
 
+    // Announce Computer's choice
+    switch(computerSelection) {
+        case computerSelection = 0: 
+            console.log(`Computer has chosen Rock`);
+            break;
+        case computerSelection = 1: 
+            console.log(`Computer has chosen Paper`);
+            break;
+        case computerSelection = 2: 
+            console.log(`Computer has chosen Scissors`);
+    }
+
+    if (playerChoice == computerSelection) {
+        console.log("Tie!")
+    } else {
+        console.log("Someone won!")
+    }
+
 }
 
 // CALL getComputerChoice()
 const computerChoice = getComputerChoice();
-
 // PROMPT for playerSelection
 const playerInput = prompt('Enter your choice. Rock, Paper, or Scissors.');
 
