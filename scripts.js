@@ -4,49 +4,69 @@ function getComputerChoice() {
     // randomly return rock, paper, or scissors
     const randomChoice = Math.floor(Math.random() * choices.length);
     console.log(randomChoice, choices[randomChoice]);
+    return;
 }
 
 function playRound(playerSelection, computerSelection) {
 
-    /*
-    PROMPT for playerSelection
+/* Make a case insensitive choice
+
+    // INIT a regexp variable regexChoice
+    const regexpChoice = new RegExp(playerSelection, i);
+        
+    /* Compare with items in choices array
+
+    FOR each choices item 
+    for (i = 0; i <= choices.length - 1; i++) {
+        IF regexChoice === choices[item]
+            SET playerChoice to i + 1
+        ELSE
+            DISPLAY message "No matching choices. Check your spelling and try again."
+            return
+    }
+    ENDFOR
     */
+        
+/* Compare playerSelection with computerSelection
     
-    /* Make a case insensitive choice
-
-    INIT a regexp variable regexChoice
-    SET regexChoice /\b(\w*^${playerSelection}$\w*)\b/gmi
-    
-    CASE compare regexChoice with items in choices array
-    
-    IF a match exists
-        SET playerSelection to matching array item
-    ELSE
-        DISPLAY message "Not a match"
-
-    COMPARE playerSelection with computerSelection
-    IF playerSelection 
-    
-    */
-
-    /* Declare winner or tie
-    
-    IF you win THEN
-        DISPLAY "You win! (winning choice) beats (losing choice)"
-    ELSE IF you lose
-        DISPLAY "You Lose! (winning choice) beats (losing choice)"
-    ELSE tie
+    IF playerSelection === computerSelection
         DISPLAY "Tie!"
-    END IF
-    
-    */
+    ELSE
+        CASE playerSelection == 1 (rock)
+            IF computerSelection == 2 (paper)
+                DISPLAY "You Lose! (winning choice) beats (losing choice)"
+            ELSE 
+                DISPLAY "You win! (winning choice) beats (losing choice)"
+            BREAK        
+        CASE playerSelection == 2 (paper)
+            IF computerSelection == 1 (rock)
+                DISPLAY "You win! (winning choice) beats (losing choice)"
+            ELSE
+                DISPLAY "You Lose! (winning choice) beats (losing choice)"
+            BREAK
+        CASE playerSelection == 3 (scissors)
+            IF computerSelection == 1 (rock)
+                DISPLAY "You Lose! (winning choice) beats (losing choice)"
+            ELSE 
+                DISPLAY "You win! (winning choice) beats (losing choice)"
+    ENDIF
+*/
+
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+// CALL getComputerChoice()
+const computerChoice = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+const playerInput = "rock";
 
+// PROMPT for playerSelection
+// const playerChoice = prompt('Enter your choice. Rock, Paper, or Scissors.');
+
+// CALL playRound
+console.log(playRound(playerInput, computerChoice));
+
+
+// COMPLETE THIS LAST
 function playGame() {
     /*
     
