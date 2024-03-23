@@ -1,5 +1,10 @@
 const choices = ['Rock', 'Paper', 'Scissors'];
 
+// INIT player and computer scores
+let playerScore = 0;
+let computerScore = 0;
+let currentRound = 1;
+
 function getComputerChoice() {
     // randomly return rock, paper, or scissors
     const randomChoice = Math.floor(Math.random() * choices.length);
@@ -7,6 +12,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+
+    // Declare round
+    console.log(`Round: ${currentRound}`);
 
     // Convert player selection to a case insensitive regular expression
     const regexpChoice = new RegExp(playerSelection, "i");
@@ -58,69 +66,66 @@ function playRound(playerSelection, computerSelection) {
                 case playerChoice == 0:
                     if (computerSelection == 1) {
                         console.log("You Lose! Paper beats Rock.");
+                        computerScore++;
                     } else { 
-                    console.log("You win! Rock beats Scissors.");
+                        console.log("You win! Rock beats Scissors.");
+                        playerScore++; 
                     }
                     break;      
                 case playerChoice == 1:
                     if (computerSelection == 0) { 
                         console.log("You win! Paper beats Rock.");
+                        playerScore++;
                     } else {
-                    console.log("You Lose! Scissors beats Paper.");
+                        console.log("You Lose! Scissors beats Paper.");
+                        computerScore++;
                     }
                     break;
                 case playerChoice == 2:
                     if (computerSelection == 0) {
                         console.log("You Lose! Rock beats Scissors.");
+                        computerScore++;
                     } else {
                         console.log("You win! Scissors beats Paper.");
+                        playerScore++;
                     } 
-            }
-            
+            }         
         }
     }
 
+    // Display current scores
+    console.log(`Player score is currently ${playerScore}`);
+    console.log(`Computer score is currently ${computerScore}`);
+
 }
 
-// CALL getComputerChoice()
-const computerChoice = getComputerChoice();
-// PROMPT for playerSelection
-const playerInput = prompt('Enter your choice. Rock, Paper, or Scissors.');
 
-// CALL playRound
-console.log(playRound(playerInput, computerChoice));
-
-
-// COMPLETE THIS LAST
 function playGame() {
-    /*
-    
-    INIT playerScore to 0
-    INIT computerScore to 0
-    INIT currentRound to 1
-    INIT resultGame
 
-    IF currentRound <= 5
-        CALL playRound();
-        DISPLAY roundWinner
-        IF roundWinner == player
-            INCREMENT playerScore
-        ELSE IF roundWinner == computer
-            INCREMENT computerScore
-        ELSE do nothing
-        END IF
+    // INIT round counter and game result
+    let resultOfGame = "";
 
-        INCREMENT currentRound
-    END IF
-    
-    IF playerScore > computerScore
-        SET resultGame to "Player Wins!"
-    ELSE IF playerScore < computerScore
-        SET resultGame to "Computer Wins!"
-    ELSE
-        SET resultGame to "Tie!"
+    for (currentRound; currentRound <= 5; currentRound++) {
+        // CALL getComputerChoice()
+        const computerChoice = getComputerChoice();
+        // PROMPT for playerSelection
+        const playerInput = prompt('Enter your choice. Rock, Paper, or Scissors.');
 
-    DISPLAY resultGame
+        // CALL playGame
+        console.log(playRound(playerInput, computerChoice));       
+    }
 
-    */
+    // Check the scores
+    if (playerScore == computerScore) {
+        resultOfGame = "Tie!";
+    } else if (playerScore > computerScore) {
+        resultOfGame = "Player Wins!";
+    } else {
+        resultOfGame = "Computer Wins!";
+    }
+    // Display result of game
+    console.log(resultOfGame);
+    console.log(`Final score: Player - ${playerScore}, Computer - ${computerScore}`);
 }
+
+console.log(playGame());
