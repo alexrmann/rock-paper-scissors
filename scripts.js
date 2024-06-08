@@ -17,13 +17,16 @@ const buttons = document.querySelectorAll("button");
 // get the results div
 const results = document.querySelector("#results");
 
+// add a currentScore div
+const currentScore = document.querySelector("#current-score");
+
 // play a round when a button is clicked
 buttons.addEventListener("click", playRound);
 
 function playRound(playerSelection, computerSelection) {
 
     // Declare round
-    console.log(`Round: ${currentRound}`);
+    results.textContent = `Round: ${currentRound}`;
 
     // Convert player selection to a case insensitive regular expression
     const regexpChoice = new RegExp(playerSelection, "i");
@@ -44,26 +47,26 @@ function playRound(playerSelection, computerSelection) {
     } else {
         switch(playerChoice) {
             case playerChoice = 0: 
-                console.log(`Player has chosen Rock`);
+                results.textContent = `Player has chosen Rock`;
                 break;
             case playerChoice = 1: 
-                console.log(`Player has chosen Paper`);
+                results.textContent = `Player has chosen Paper`;
                 break;
             case playerChoice = 2: 
-                console.log(`Player has chosen Scissors`);
+                results.textContent = `Player has chosen Scissors`;
         }
     }
 
     // Announce Computer's choice
     switch(computerSelection) {
         case computerSelection = 0: 
-            console.log(`Computer has chosen Rock`);
+            results.textContent = `Computer has chosen Rock`;
             break;
         case computerSelection = 1: 
-            console.log(`Computer has chosen Paper`);
+            results.textContent = `Computer has chosen Paper`;
             break;
         case computerSelection = 2: 
-            console.log(`Computer has chosen Scissors`);
+            results.textContent = `Computer has chosen Scissors`;
     }
 
     // Evaluate the result of the round
@@ -74,28 +77,28 @@ function playRound(playerSelection, computerSelection) {
             switch(true) {
                 case playerChoice == 0:
                     if (computerSelection == 1) {
-                        console.log("You Lose! Paper beats Rock.");
+                        results.textContent = "You Lose! Paper beats Rock.";
                         computerScore++;
                     } else { 
-                        console.log("You win! Rock beats Scissors.");
+                        results.textContent = "You win! Rock beats Scissors.";
                         playerScore++; 
                     }
                     break;      
                 case playerChoice == 1:
                     if (computerSelection == 0) { 
-                        console.log("You win! Paper beats Rock.");
+                        results.textContent = "You win! Paper beats Rock.";
                         playerScore++;
                     } else {
-                        console.log("You Lose! Scissors beats Paper.");
+                        results.textContent = "You Lose! Scissors beats Paper.";
                         computerScore++;
                     }
                     break;
                 case playerChoice == 2:
                     if (computerSelection == 0) {
-                        console.log("You Lose! Rock beats Scissors.");
+                        results.textContent = "You Lose! Rock beats Scissors.";
                         computerScore++;
                     } else {
-                        console.log("You win! Scissors beats Paper.");
+                        results.textContent = "You win! Scissors beats Paper.";
                         playerScore++;
                     } 
             }         
@@ -103,8 +106,8 @@ function playRound(playerSelection, computerSelection) {
     }
 
     // Display current scores
-    console.log(`Player score is currently ${playerScore}`);
-    console.log(`Computer score is currently ${computerScore}`);
+    currentScore.textContent = `Player score is currently ${playerScore}`;
+    currentScore.textContent = `Computer score is currently ${computerScore}`;
 
 }
 
@@ -121,7 +124,7 @@ function playGame() {
         const playerInput = prompt('Enter your choice. Rock, Paper, or Scissors.');
 
         // CALL playGame
-        console.log(playRound(playerInput, computerChoice));       
+        playRound(playerInput, computerChoice);       
     }
 
     // Check the scores
@@ -133,8 +136,8 @@ function playGame() {
         resultOfGame = "Computer Wins!";
     }
     // Display result of game
-    console.log(resultOfGame);
-    console.log(`Final score: Player - ${playerScore}, Computer - ${computerScore}`);
+    results.textContent = resultOfGame;
+    currentScore.textContent = `Final score: Player - ${playerScore}, Computer - ${computerScore}`;
 }
 
-console.log(playGame());
+playGame();
