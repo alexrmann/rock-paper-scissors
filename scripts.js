@@ -11,6 +11,11 @@ function getComputerChoice() {
     return randomChoice;
 }
 
+// get all buttons
+const buttons = document.querySelectorAll("button");
+// play a round when a button is clicked
+buttons.addEventListener("click", playRound);
+
 function playRound(playerSelection, computerSelection) {
 
     // Declare round
@@ -105,7 +110,7 @@ function playGame() {
     // INIT round counter and game result
     let resultOfGame = "";
 
-    for (currentRound; currentRound <= 5; currentRound++) {
+    while (currentRound) {
         // CALL getComputerChoice()
         const computerChoice = getComputerChoice();
         // PROMPT for playerSelection
