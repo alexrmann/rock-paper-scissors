@@ -13,6 +13,10 @@ function getComputerChoice() {
 
 // get all buttons
 const buttons = document.querySelectorAll("button");
+
+// get the results div
+const results = document.querySelector("#results");
+
 // play a round when a button is clicked
 buttons.addEventListener("click", playRound);
 
