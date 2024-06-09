@@ -1,21 +1,22 @@
 /* 
-Assign html elements
-*/
+ASSIGN HTML ELEMENTS*/
 
-const choices = ['Rock', 'Paper', 'Scissors'];
-
+// Status Readouts
 const round = document.querySelector("#round");
 const results = document.querySelector("#results");
-
 const score = document.querySelector("#score");
 
+// Buttons
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 /*
-Add a "new game" button to click before starting the game. Hide it after a game starts. After a game, reveal the button again to start a new game.
+INITIALIZE GAME PARAMETERS
 */
+
+// INIT choices
+const choices = ['Rock', 'Paper', 'Scissors'];
 
 // INIT player and computer scores
 let playerScore = 0;
@@ -30,19 +31,26 @@ paper.addEventListener("click", playGame(choices[1]));
 scissors.addEventListener("click", playGame(choices[2])); 
 
 function playGame(playerChoice) {
+    // Log clicks to console
+    console.log("Player clicked: " + playerChoice);
+
     const computerSelection = getComputerChoice();
+    /*
     const roundResult = playRound(playerChoice, computerSelection);
     updateResult(roundResult);
-    updateScore(playerScore, computerScore);
+    updateScore(playerScore, computerScore);*/
+}
+
+function getComputerChoice() {
+    // randomly return rock, paper, or scissors
+    const randomIndex = Math.floor(Math.random() * choices.length);
+
+    //convert 
+    console.log("Computer picked: " + choices[randomIndex]);
+    return choices[randomIndex];
 }
 
 /*
-function getComputerChoice() {
-    // randomly return rock, paper, or scissors
-    const randomChoice = Math.floor(Math.random() * choices.length);
-    return randomChoice;
-}
-
 function playRound(playerChoice, computerSelection) {
    
     // Declare round
