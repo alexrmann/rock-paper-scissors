@@ -1,5 +1,6 @@
 /* 
-ASSIGN HTML ELEMENTS*/
+ASSIGN HTML ELEMENTS
+*/
 
 // Status Readouts
 const round = document.querySelector("#round");
@@ -31,31 +32,41 @@ paper.addEventListener("click", playGame(choices[1]));
 scissors.addEventListener("click", playGame(choices[2])); 
 
 function playGame(playerChoice) {
+
     // Log clicks to console
     console.log("Player clicked: " + playerChoice);
 
     const computerSelection = getComputerChoice();
-    /*
+    
+    // Play a round
     const roundResult = playRound(playerChoice, computerSelection);
+
+    /*
     updateResult(roundResult);
-    updateScore(playerScore, computerScore);*/
+    updateScore(playerScore, computerScore);
+    */
+    
+    // Increment to the next round
+    currentRound++;
+
 }
 
 function getComputerChoice() {
-    // randomly return rock, paper, or scissors
+    // Randomly select an index from choices array
     const randomIndex = Math.floor(Math.random() * choices.length);
 
-    //convert 
+    // Convert random index to corresponding string in choices array
     console.log("Computer picked: " + choices[randomIndex]);
     return choices[randomIndex];
 }
 
-/*
+
 function playRound(playerChoice, computerSelection) {
    
-    // Declare round
+    // Update the current round
     round.textContent = `Round: ${currentRound}`;
 
+    /*
     switch(playerChoice) {
         case playerChoice = choices[0]: 
             results.textContent = `Player has chosen Rock`;
@@ -114,10 +125,10 @@ function playRound(playerChoice, computerSelection) {
         }
     }
 
-    // Increment to the next round
-    currentRound++;
+    */
 }
 
+/*
 function updateResult(result) {
     results.textContent = result;
 
