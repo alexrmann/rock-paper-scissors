@@ -8,6 +8,7 @@ const results = document.querySelector("#results");
 const score = document.querySelector("#score");
 
 // Buttons
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -27,9 +28,10 @@ let computerScore = 0;
 let currentRound = 1; 
 
 // play a round when a button is clicked
-rock.addEventListener("click", playGame(choices[0])); 
-paper.addEventListener("click", playGame(choices[1])); 
-scissors.addEventListener("click", playGame(choices[2])); 
+
+rock.addEventListener("click", () => playGame(choices[0])); 
+paper.addEventListener("click", () => playGame(choices[1])); 
+scissors.addEventListener("click", () => playGame(choices[2]));
 
 function playGame(playerChoice) {
 
