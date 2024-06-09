@@ -38,11 +38,6 @@ summary,
     align-items: center;
 }
 
-.buttons {
-    display: block;
-    margin: 2em 0;
-}
-
 #scorecard {
     height: 8rem;
     display: flex;
