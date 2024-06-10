@@ -6,6 +6,8 @@ ASSIGN HTML ELEMENTS
 const round = document.querySelector("#round");
 const results = document.querySelector("#results");
 const score = document.querySelector("#score");
+const textPlayer = document.querySelector("#player");
+const textComputer = document.querySelector("#computer");
 
 // Buttons
 
@@ -71,25 +73,25 @@ function playRound(playerChoice, computerSelection) {
     /*
     switch(playerChoice) {
         case playerChoice = choices[0]: 
-            results.textContent = `Player has chosen Rock`;
+            textPlayer.textContent = `Player has chosen Rock`;
             break;
         case playerChoice = choices[1]: 
-            results.textContent = `Player has chosen Paper`;
+            textPlayer.textContent = `Player has chosen Paper`;
             break;
         case playerChoice = choices[2]: 
-            results.textContent = `Player has chosen Scissors`;
+            textPlayer.textContent = `Player has chosen Scissors`;
     }
 
     // Announce Computer's choice
     switch(computerSelection) {
         case computerSelection = choices[0]: 
-            results.textContent = `Computer has chosen Rock`;
+            textComputer.textContent = `Computer has chosen Rock`;
             break;
         case computerSelection = choices[1]: 
-            results.textContent = `Computer has chosen Paper`;
+            textComputer.textContent = `Computer has chosen Paper`;
             break;
         case computerSelection = choices[2]: 
-            results.textContent = `Computer has chosen Scissors`;
+            textComputer.textContent = `Computer has chosen Scissors`;
     }
 
     if (playerChoice != undefined) {
