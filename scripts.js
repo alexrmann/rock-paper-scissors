@@ -4,6 +4,7 @@ ASSIGN HTML ELEMENTS
 
 // Status Readouts
 const round = document.querySelector("#round");
+const gameStatus = document.querySelector("#game-status");
 const results = document.querySelector("#results");
 const score = document.querySelector("#score");
 const textPlayer = document.querySelector("#player");
@@ -40,15 +41,15 @@ function playGame(playerChoice) {
     // Log clicks to console
     console.log("Player clicked: " + playerChoice);
 
+    // Get the computer's choice
     const computerSelection = getComputerChoice();
     
-    // Play a round
+    // Play out the round
     const roundResult = playRound(playerChoice, computerSelection);
 
-    /*
-    updateResult(roundResult);
+    // updateResult(roundResult);
+
     updateScore(playerScore, computerScore);
-    */
     
     // Increment to the next round
     currentRound++;
@@ -64,13 +65,12 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
-
 function playRound(playerChoice, computerSelection) {
    
     // Update the current round
     round.textContent = `Round: ${currentRound}`;
 
-    /*
+    // Announce Player's choice
     switch(playerChoice) {
         case playerChoice = choices[0]: 
             textPlayer.textContent = `Player has chosen Rock`;
@@ -96,57 +96,57 @@ function playRound(playerChoice, computerSelection) {
 
     if (playerChoice != undefined) {
         if (playerChoice === computerSelection) {
-            console.log("Tie!")
+            results.textContent = "Tie!";
         } else {
             switch(true) {
                 case playerChoice === choices[0]:
                     if (computerSelection === choices[1]) {
-                        results.textContent = "You Lose! Paper beats Rock.";
+                        results.textContent = "You lost this round! Paper beats Rock.";
                         computerScore++;
                     } else { 
-                        results.textContent = "You win! Rock beats Scissors.";
+                        results.textContent = "You win the round! Rock beats Scissors.";
                         playerScore++; 
                     }
                     break;      
                 case playerChoice === choices[1]:
                     if (computerSelection === choices[0]) { 
-                        results.textContent = "You win! Paper beats Rock.";
+                        results.textContent = "You win the round! Paper beats Rock.";
                         playerScore++;
                     } else {
-                        results.textContent = "You Lose! Scissors beats Paper.";
+                        results.textContent = "You lost this round! Scissors beats Paper.";
                         computerScore++;
                     }
                     break;
                 case playerChoice === choices[2]:
                     if (computerSelection === choices[0]) {
-                        results.textContent = "You Lose! Rock beats Scissors.";
+                        results.textContent = "You lost this round! Rock beats Scissors.";
                         computerScore++;
                     } else {
-                        results.textContent = "You win! Scissors beats Paper.";
+                        results.textContent = "You win the round! Scissors beats Paper.";
                         playerScore++;
                     } 
             }         
         }
     }
-
-    */
 }
 
 /*
 function updateResult(result) {
-    results.textContent = result;
 
-        // Check the scores
-        if (computerScore == 5) {
-            updateResult("Computer Wins!");
-        } else if (playerScore == 5) {
-            updateResult("Player Wins!");
-        } else {
-            updateResult("Next Round!");
-        }
+    // Check the scores
+    if (computerScore === 5) {
+        updateResult("Computer  Wins!");
+    } else if (playerScore === 5) {
+        updateResult("Player Wins!");
+    } else {
+        updateResult("Next Round!");
+    }
+
+    gameStatus.textContent = result;
+
 }
+*/
   
 function updateScore(playerScore, computerScore) {
     score.textContent = `Score: Player - ${playerScore}, Computer - ${computerScore}`;
 }
-*/
